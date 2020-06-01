@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "CanvasCBL Grades",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["https://dtechhs.instructure.com/"],
+      "js": ["content_scripts/dashboard/index.js"],
+      "css": ["content_scripts/dashboard/index.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "scripts": ["background.bundle.js"],
+    "persistent": false
+  }
+}

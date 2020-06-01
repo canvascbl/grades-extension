@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "chrome"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "grades-extension",
+  "version": "0.1",
+  "description": "Puts CanvasCBL grades into Canvas.",
+  "main": "index.js",
+  "repository": "https://github.com/canvascbl/grades-extension.git",
+  "author": "iamtheyammer <iamtheyammer@gmail.com>",
+  "scripts": {
+    "start": "NODE_ENV=development webpack --watch",
+    "build": "NODE_ENV=production webpack"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.114",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-copy-plugin": "^0.0.4"
+  }
+}
