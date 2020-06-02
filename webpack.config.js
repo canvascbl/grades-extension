@@ -57,7 +57,8 @@ module.exports = {
         {
           from: "src/content_scripts",
           to: "content_scripts"
-        }
+        },
+        { from: "img/extension", to: "img"}
       ],
     }),
 
