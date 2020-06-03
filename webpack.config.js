@@ -56,9 +56,9 @@ module.exports = {
         { from: "src/manifest.json", to: "" },
         {
           from: "src/content_scripts",
-          to: "content_scripts"
+          to: "content_scripts",
         },
-        { from: "img/extension", to: "img"}
+        { from: "img/extension", to: "img" },
       ],
     }),
 
