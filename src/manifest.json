@@ -8,10 +8,19 @@
       "js": ["content_scripts/dashboard/index.js"],
       "css": ["content_scripts/dashboard/index.css"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://dtechhs.instructure.com/courses/*"],
+      "js": ["content_scripts/course_home/index.js"],
+      "css": ["content_scripts/course_home/index.css"],
+      "run_at": "document_idle"
     }
   ],
   "background": {
     "scripts": ["background.bundle.js"],
     "persistent": false
-  }
+  },
+  "web_accessible_resources": [
+    "img/*"
+  ]
 }

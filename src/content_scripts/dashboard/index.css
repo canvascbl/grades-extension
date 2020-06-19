@@ -11,6 +11,19 @@
   backdrop-filter: blur(3px);
   text-align: center;
 }
+
+.canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-grade {
+    content: "";
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/pop_out.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+.canvascbl-dashboard-grade-container:hover {
+    translate: left 50px;
+}
+
 .canvascbl-dashboard-grade {
   color: white;
   font-size: 135%;

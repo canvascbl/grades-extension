@@ -1,6 +1,6 @@
 // add some JS that will be injected into Canvas.
 
-// console.log('Josh is in charge now')
+console.log('Josh is in charge now');
 
 function generateGradeId() {
   return `canvascbl-grade-${Math.random()}`;
@@ -55,3 +55,9 @@ chrome.runtime.onMessage.addListener((msg) => {
       return;
   }
 });
+displayGrade(536, "A");
+displayGrade(555, "A");
+displayGrade(545, "A");
+displayGrade(594, "A");
+displayGrade(559, "A-");
+displayGrade(751, "A");

@@ -1,0 +1,22 @@
+.canvascbl-class-grade {
+  display: block;
+  text-align: center;
+  font: bold 24px/29px Lato;
+  letter-spacing: 0px;
+  color: #2d3b45;
+  opacity: 1;
+}
+.canvascbl-class-grade-attribution {
+  width: auto;
+  height: 35px;
+  background-size: contain, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 10px;
+}
+.canvascbl-class-grade-breakdown-link {
+  text-align: center;
+  display: block;
+  font-size: 15px;
+  margin-top: 10px;
+}
