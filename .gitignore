@@ -117,3 +117,4 @@ dist
 
 bin/
 .idea/
+authorizer/bin
