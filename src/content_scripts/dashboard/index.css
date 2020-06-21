@@ -14,7 +14,7 @@
 }
 
 .canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-grade {
-    display: none;
+    /*display: none;*/
 }
 
 .canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-expanded-grade-container {
@@ -22,6 +22,26 @@
     overflow-wrap: break-word;
     text-align: left;
     padding: 7px 10px;
+    animation-name: openTransition;
+    animation-duration: 0.3s;
+    animation-delay: 250ms;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+
+.canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-grade {
+    margin-left: 11px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+@keyframes openTransition {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .canvascbl-dashboard-grade-container:hover {
@@ -32,7 +52,12 @@
 
 .canvascbl-dashboard-expanded-grade-container {
     display: none;
+    opacity: 0;
     color: white;
+}
+
+.canvascbl-dashboard-expanded-grade-container span:nth-child(1) {
+    margin-left: 32px;
 }
 
 .canvascbl-dashboard-expanded-grade-container-grade {
@@ -41,13 +66,20 @@
 }
 
 .canvascbl-dashboard-grade {
-  color: white;
-  font-size: 135%;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    color: white;
+    font-size: 135%;
+    transition: .25s;
+    margin: 0;
+    line-height: normal;
+    margin-left: 9px;
+    top: 0px;
+    left: 0px;
+    margin-top: 4px;
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
 }
 
 .canvascbl-dashboard-ref {

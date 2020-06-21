@@ -27,8 +27,7 @@ for (let i = 0; i < cards.length; i++) {
 function getExpandedGradeContainer(
   courseId = 559,
   courseName = "United States History - S2 - Gutierrez",
-  grade = "A-",
-  calculated = "5 minutes ago"
+  calculated = "5 minutes ago but last year because why not"
 ) {
   const container = document.createElement("div");
   container.className = "canvascbl-dashboard-expanded-grade-container";
@@ -36,9 +35,7 @@ function getExpandedGradeContainer(
   const gradeDisplay = document.createElement("span");
   const grd = document.createElement("span");
   grd.className = "canvascbl-dashboard-expanded-grade-container-grade";
-  grd.innerText = grade;
-  gradeDisplay.append(grd);
-  gradeDisplay.append(` From ${calculated}`);
+  gradeDisplay.append(`From ${calculated}`);
   container.appendChild(gradeDisplay);
 
   const separator = document.createElement("hr");
@@ -46,7 +43,7 @@ function getExpandedGradeContainer(
   container.appendChild(separator);
 
   const p2 = document.createElement("span");
-  p2.innerText = `Click for a full breakdown.`;
+  p2.innerText = `Click for a breakdown.`;
   container.appendChild(p2);
 
   return container;
