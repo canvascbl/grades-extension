@@ -4,3 +4,6 @@ zip:
 
 upload:
 	aws lambda update-function-code --function-name canvascbl-tinyapi-grades-extension --zip-file fileb://./bin/authorizer.zip
+
+upload-stg:
+	aws lambda update-function-code --function-name canvascbl-tinyapi-grades-extension-stg --zip-file fileb://./bin/authorizer.zip

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>d.tech Canvas Fixer Settings</title>
+</head>
+
+<body class="d-flex flex-column full-height-fix">
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">CanvasCBL Grades Settings</h1>
+        <p class="text-muted">
+            Come back to this page at any time by clicking on the extension.<br/>
+            Have feedback? Email it to <a href="mailto:sam@canvascbl.com?subject=CanvasCBL Grades Extension Feedback">sam@canvascbl.com</a>.
+        </p>
+        <hr>
+        <div id="alert_container">
+
+        </div>
+        <h2>CanvasCBL Link</h2>
+        <p class="lead">Before we can put grades in Canvas, we need to link this extension to your CanvasCBL account.</p>
+        <form id="link_to_canvascbl" class="form-check" action="">
+            <input id="linked_checkbox" type="checkbox" class="form-check-input" disabled>
+            <label for="linked_checkbox" class="form-check-label">Extension linked to CanvasCBL</label><br/>
+        </form>
+        <br>
+        <a href="https://tinyapi.canvascbl.com/grades-extension/request">
+            <button id="canvascbl_oauth2_request" class="btn btn-outline-secondary btn-sm">Link to CanvasCBL</button>
+        </a>
+        <br>
+        <br>
+        <h2>Forwarding</h2>
+        <p class="lead">
+            When enabled, this extension will automatically redirect you to one of the login options.
+        </p>
+        <form id="forwarding_settings" class="form-check" action="">
+            <input id="saml_radio" name="forward_to" type="radio" class="form-check-input" disabled>
+            <label for="saml_radio" class="form-check-label">Student/Staff login</label><br/>
+            <input id="canvas_radio" name="forward_to" type="radio" class="form-check-input" disabled>
+            <label for="canvas_radio" class="form-check-label">Parent login</label><br/>
+        </form>
+        <br>
+        <h2>Visit d.tech Family Portal</h2>
+        <p class="lead">Want to visit the d.tech Family Portal anyway? Click below.</p>
+        <p>When visiting via the below button, you won't get redirected to a sign-in
+            option even when Enable auto-forwarding is enabled.</p>
+        <a href="https://sites.google.com/dtechhs.org/dtechfamilyportal/home?dtech_canvas_fixer_no_redirect=true">
+            <button id="visit_dtech_family_portal" class="btn btn-outline-secondary btn-sm">Visit and stay on the d.tech Family Portal</button>
+        </a>
+        <div id="get_started_container" class="pb-5">
+            <hr>
+            <a href="https://dtechhs.instructure.com">
+                <button class="btn btn-success btn-block btn-lg">Go to Canvas</button>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <div class="row flex-wrap text-muted">
+            <div class="col">
+                Made by Sam Mendelson, founder of <a href="https://canvascbl.com?utm_source=dtech_canvas_fixer&utm_medium=settings_footer" target="_blank">CanvasCBL</a>.
+            </div>
+            <div class="col-3 text-right">
+                Version <span id="version-field">loading...</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="index.bundle.js"></script>
+</body>
+</html>

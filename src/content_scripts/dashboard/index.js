@@ -1,7 +1,5 @@
 // add some JS that will be injected into Canvas.
 
-console.log('Josh is in charge now');
-
 function generateGradeId() {
   return `canvascbl-grade-${Math.random()}`;
 }
@@ -26,15 +24,63 @@ for (let i = 0; i < cards.length; i++) {
   courseCards[cardCourseId] = card;
 }
 
-function displayGrade(courseId, grade) {
+function getExpandedGradeContainer(
+  courseId = 559,
+  courseName = "United States History - S2 - Gutierrez",
+  grade = "A-",
+  calculated = "5 minutes ago"
+) {
+  const container = document.createElement("div");
+  container.className = "canvascbl-dashboard-expanded-grade-container";
+
+  const gradeDisplay = document.createElement("span");
+  const grd = document.createElement("span");
+  grd.className = "canvascbl-dashboard-expanded-grade-container-grade";
+  grd.innerText = grade;
+  gradeDisplay.append(grd);
+  gradeDisplay.append(` From ${calculated}`);
+  container.appendChild(gradeDisplay);
+
+  const separator = document.createElement("hr");
+  separator.className = "canvascbl-hr";
+  container.appendChild(separator);
+
+  const p2 = document.createElement("span");
+  p2.innerText = `Click for a full breakdown.`;
+  container.appendChild(p2);
+
+  return container;
+}
+
+function displayGrade(courseId, grade, retry = 0) {
   const domGrade = document.getElementById(courseGradeIds[courseId]);
   const card = courseCards[courseId];
+
+  // try 3 times
+  if (!card && retry < 3) {
+    setTimeout(
+      () => displayGrade(courseId, grade, retry + 1),
+      // increase retry time by 50ms per retry
+      250 + 250 * retry
+    );
+    return;
+  } else if (!card) {
+    // unsuccessful
+    return;
+  }
 
   if (domGrade) {
     domGrade.innerText = grade;
   } else {
+    const linkContainer = document.createElement("a");
+    linkContainer.className = "not_external";
+    linkContainer.href = `https://app.canvascbl.com/#/dashboard/grades/${courseId}`;
+    linkContainer.target = "_blank";
+
     const gradeContainer = document.createElement("div");
     gradeContainer.className = "canvascbl-dashboard-grade-container";
+    gradeContainer.appendChild(getExpandedGradeContainer(/* ... */));
+
     const gradeDisplay = document.createElement("span");
     gradeDisplay.className = "canvascbl-dashboard-grade";
     gradeDisplay.innerText = grade;
@@ -44,7 +90,8 @@ function displayGrade(courseId, grade) {
     courseGradeIds[courseId] = gradeId;
 
     gradeContainer.appendChild(gradeDisplay);
-    card.appendChild(gradeContainer);
+    linkContainer.appendChild(gradeContainer);
+    card.appendChild(linkContainer);
   }
 }
 
@@ -55,9 +102,13 @@ chrome.runtime.onMessage.addListener((msg) => {
       return;
   }
 });
-displayGrade(536, "A");
-displayGrade(555, "A");
-displayGrade(545, "A");
-displayGrade(594, "A");
+
+const refImg = document.createElement("a");
+refImg.className = "canvascbl-dashboard-ref not_exernal";
+refImg.href = "https://canvascbl.com";
+refImg.target = "_blank";
+
+const icFooterLogo = document.querySelector(".footer-logo");
+icFooterLogo.parentNode.insertBefore(refImg, icFooterLogo.nextSibling);
+
 displayGrade(559, "A-");
-displayGrade(751, "A");

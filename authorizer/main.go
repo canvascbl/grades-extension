@@ -21,7 +21,7 @@ func getOAuth2RequestURL() string {
 	q.Add("response_type", "code")
 	q.Add("client_id", OAuth2ClientID)
 	q.Add("redirect_uri", OAuth2RedirectURI)
-	q.Add("scope", "grades user_profile")
+	q.Add("scope", OAuth2Scope)
 	q.Add("purpose", "CanvasCBL Grades Extension for Canvas")
 	u.RawQuery = q.Encode()
 

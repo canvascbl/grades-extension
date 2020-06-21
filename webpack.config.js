@@ -59,6 +59,7 @@ module.exports = {
           to: "content_scripts",
         },
         { from: "img/extension", to: "img" },
+        { from: "src/ui", to: "ui" },
       ],
     }),
 

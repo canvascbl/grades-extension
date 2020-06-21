@@ -10,18 +10,34 @@
   border-radius: 5px;
   backdrop-filter: blur(3px);
   text-align: center;
+  transition: width 250ms, height 250ms;
 }
 
 .canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-grade {
-    content: "";
-    background-image: url(chrome-extension://__MSG_@@extension_id__/img/pop_out.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    
+    display: none;
 }
+
+.canvascbl-dashboard-grade-container:hover .canvascbl-dashboard-expanded-grade-container {
+    display: block;
+    overflow-wrap: break-word;
+    text-align: left;
+    padding: 7px 10px;
+}
+
 .canvascbl-dashboard-grade-container:hover {
-    translate: left 50px;
+    width: 75%;
+    height: auto;
+    max-height: 60%;
+}
+
+.canvascbl-dashboard-expanded-grade-container {
+    display: none;
+    color: white;
+}
+
+.canvascbl-dashboard-expanded-grade-container-grade {
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 .canvascbl-dashboard-grade {
@@ -34,11 +50,15 @@
   transform: translate(-50%, -50%);
 }
 
-/* .canvascbl-class-grade-container {
-    position: absolute;
-    text-align: left;
-    font: Bold 16px/19px Lato;
-    letter-spacing: 0px;
-    color: #2D3B45;
-    opacity: 1;
-} */
+.canvascbl-dashboard-ref {
+    width: 148px;
+    height: 30px;
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/grades_from_canvascbl.png);
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: center;
+}
+
+.canvascbl-hr {
+    margin: 4px 0;
+}

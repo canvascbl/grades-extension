@@ -7,10 +7,11 @@ import (
 )
 
 var (
-	OAuth2ClientID = getEnvOrPanic("OAUTH2_CLIENT_ID")
+	OAuth2ClientID     = getEnvOrPanic("OAUTH2_CLIENT_ID")
 	OAuth2ClientSecret = getEnvOrPanic("OAUTH2_CLIENT_SECRET")
-	OAuth2RedirectURI = getEnvOrPanic("OAUTH2_REDIRECT_URI")
-	ExtensionCodeURI = func() *url.URL {
+	OAuth2RedirectURI  = getEnvOrPanic("OAUTH2_REDIRECT_URI")
+	OAuth2Scope        = getEnvOrPanic("OAUTH2_SCOPE")
+	ExtensionCodeURI   = func() *url.URL {
 		uri := getEnvOrPanic("EXTENSION_CODE_URI")
 		u, err := url.Parse(uri)
 		if err != nil {
