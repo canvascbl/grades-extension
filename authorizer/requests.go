@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 var client = &http.Client{}
@@ -14,7 +15,7 @@ var tokenURL = url.URL{
 	Path:   "api/oauth2/token",
 }
 
-func makeTokenRequest(code *string, refreshToken *string) (*[]byte, *int, error) {
+func makeTokenRequest(code *string, refreshToken *string) (*[]byte, *int, *int64, error) {
 	grantType := "authorization_code"
 
 	if refreshToken != nil {
@@ -36,15 +37,17 @@ func makeTokenRequest(code *string, refreshToken *string) (*[]byte, *int, error)
 	}
 	u.RawQuery = q.Encode()
 
+	start := time.Now()
 	resp, err := client.Post(u.String(), "", nil)
 	if err != nil {
-		return nil, nil, fmt.Errorf("error making token post request: %w", err)
+		return nil, nil, nil, fmt.Errorf("error making token post request: %w", err)
 	}
+	dur := time.Since(start).Milliseconds()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return nil, nil, fmt.Errorf("error reading body from token post request %w", err)
+		return nil, nil, nil, fmt.Errorf("error reading body from token post request %w", err)
 	}
 
-	return &body, &resp.StatusCode, nil
+	return &body, &resp.StatusCode, &dur, nil
 }

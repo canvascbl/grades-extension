@@ -21,6 +21,11 @@
     "persistent": false
   },
   "web_accessible_resources": [
-    "img/*"
+    "img/*",
+    "ui/oauth2response/index.html"
+  ],
+  "permissions": [
+    "storage",
+    "https://*.canvascbl.com/"
   ]
 }

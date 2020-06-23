@@ -70,13 +70,11 @@
     color: white;
     font-size: 135%;
     transition: .25s;
-    margin: 0;
     line-height: normal;
-    margin-left: 9px;
-    top: 0px;
-    left: 0px;
-    margin-top: 4px;
-  /*position: absolute;*/
+    top: 0;
+    left: 0;
+    margin: 4px 0 0 9px;
+    /*position: absolute;*/
   /*top: 50%;*/
   /*left: 50%;*/
   /*transform: translate(-50%, -50%);*/

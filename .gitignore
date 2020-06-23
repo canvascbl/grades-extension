@@ -118,3 +118,4 @@ dist
 bin/
 .idea/
 authorizer/bin
+.DS_Store

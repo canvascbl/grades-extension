@@ -6,12 +6,16 @@
       "dom",
       "es5",
       "scripthost"
-    ]
+    ],
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
   },
   "exclude": [
     "node_modules"
   ],
   "types": [
-    "chrome"
+    "chrome",
+    "axios"
   ]
 }

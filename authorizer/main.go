@@ -45,6 +45,10 @@ func sendStatusWithReason(status int, reason string) events.APIGatewayProxyRespo
 	}
 }
 
+func generateServerTimingHeader(dur int64) string {
+	return fmt.Sprintf("api;dur=%d;desc=\"CanvasCBL API\"", dur)
+}
+
 func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	action := req.PathParameters["action"]
 
@@ -64,7 +68,7 @@ func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProx
 		if len(code) < 1 {
 			return sendStatusWithReason(http.StatusBadRequest, "missing code as query param"), nil
 		}
-		resp, statusCode, err := makeTokenRequest(&code, nil)
+		resp, statusCode, dur, err := makeTokenRequest(&code, nil)
 
 		apiResp := events.APIGatewayProxyResponse{
 			StatusCode: http.StatusBadGateway,
@@ -72,6 +76,10 @@ func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProx
 				"Content-Type": "application/json",
 			},
 			IsBase64Encoded: false,
+		}
+
+		if dur != nil {
+			apiResp.Headers["Server-Timing"] = generateServerTimingHeader(*dur)
 		}
 
 		if statusCode != nil {
@@ -94,7 +102,7 @@ func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProx
 			return sendStatusWithReason(http.StatusBadRequest, "missing refresh_token as query param"), nil
 		}
 
-		resp, statusCode, err := makeTokenRequest(nil, &refreshToken)
+		resp, statusCode, dur, err := makeTokenRequest(nil, &refreshToken)
 
 		apiResp := events.APIGatewayProxyResponse{
 			StatusCode: http.StatusBadGateway,
@@ -102,6 +110,10 @@ func HandleLambdaEvent(req events.APIGatewayProxyRequest) (events.APIGatewayProx
 				"Content-Type": "application/json",
 			},
 			IsBase64Encoded: false,
+		}
+
+		if dur != nil {
+			apiResp.Headers["Server-Timing"] = generateServerTimingHeader(*dur)
 		}
 
 		if statusCode != nil {
