@@ -124,6 +124,15 @@ module.exports = {
         terserOptions: {
           mangle: true,
         },
+        extractComments: {
+          banner: (licenseFile) =>
+            `${
+              !isDev &&
+              "Reverse-engineering any part of CanvasCBL is against our terms of service, which you can find at https://go.canvascbl.com/tos. // "
+            }hash:[hash], builtAt:${Date.now()}, isDev:${
+              isDev ? "true" : "false"
+            } // Find license information in ${licenseFile}`,
+        },
       }),
     ],
   },
