@@ -3,6 +3,7 @@ const path = require("path");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarWebpackPlugin = require("progress-bar-webpack-plugin");
@@ -113,6 +114,17 @@ module.exports = {
           ],
         },
       },
+    ],
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserWebpackPlugin({
+        terserOptions: {
+          mangle: true,
+        },
+      }),
     ],
   },
 

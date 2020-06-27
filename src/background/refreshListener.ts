@@ -48,7 +48,7 @@ class RefreshListener extends Module {
 
     return (
       !this.props.loadingGrades &&
-      moment(this.props.gradesFetchedAt).add(1, "minute").isBefore()
+      moment(this.props.gradesFetchedAt).add(1, "hour").isBefore()
     );
   };
 
