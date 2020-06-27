@@ -20,6 +20,7 @@
     "scripts": ["background.bundle.js"],
     "persistent": true
   },
+  "browser_action": {},
   "web_accessible_resources": [
     "img/*",
     "ui/oauth2response/index.html"

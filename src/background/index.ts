@@ -8,3 +8,9 @@ import RefreshListener from "./refreshListener";
 
 connectToStore(Storage);
 connectToStore(RefreshListener);
+
+chrome.browserAction.onClicked.addListener(() => {
+  chrome.tabs.create({
+    url: chrome.runtime.getURL("/ui/settings/index.html"),
+  });
+});
