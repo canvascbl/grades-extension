@@ -10,10 +10,6 @@ import {
 
 const rightSide = document.querySelector("#right-side");
 
-function generateGradeId() {
-  return `${Math.random()}`;
-}
-
 interface CourseHomeInjectionProps {
   detailedGrades?: DetailedGrades;
   loadingGrades?: CanvasState["loadingGrades"];

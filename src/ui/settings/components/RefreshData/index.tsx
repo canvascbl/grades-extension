@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import State from "../../../../background/redux/types";
 import { getGrades } from "../../../../background/redux/actions/canvas";
 import moment from "moment";
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 function RefreshData(props) {
   const {

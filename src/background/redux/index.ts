@@ -1,7 +1,7 @@
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "remote-redux-devtools";
-import { Store, wrapStore } from "webext-redux";
+import { wrapStore } from "webext-redux";
 import rootReducer from "./reducers";
 import { getInitialState } from "../storage";
 import rootSaga from "./sagas";
@@ -43,7 +43,7 @@ async function init() {
 
 init();
 
-export function connectToStore(c) {
+export function connectToStore(c: (props) => void): void {
   if (store) {
     new c(store);
   } else {

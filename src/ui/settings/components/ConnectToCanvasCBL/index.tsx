@@ -16,7 +16,7 @@ interface ConnectToCanvasCBLStateProps {
 }
 
 interface ConnectToCanvasCBLDispatchProps {
-  getCanvascblUserProfile: any;
+  getCanvascblUserProfile: () => void;
 }
 
 type ConnectToCanvasCBLProps = ConnectToCanvasCBLStateProps &
@@ -37,7 +37,12 @@ function ConnectToCanvasCBL(props: ConnectToCanvasCBLProps): JSX.Element {
       // fetch canvascbl profile
       getCanvascblUserProfile();
     }
-  }, [accessTokenExists, canvasUserProfile, canvascblUserProfile]);
+  }, [
+    accessTokenExists,
+    canvasUserProfile,
+    canvascblUserProfile,
+    getCanvascblUserProfile,
+  ]);
 
   const userProfile: CanvasCBLUserProfile | UserProfile | undefined =
     canvascblUserProfile || canvasUserProfile;

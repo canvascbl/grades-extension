@@ -60,6 +60,7 @@ function* getTokenFromCode({ code }) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function* doRefreshToken({ onlyIfNecessary }) {
   const { expiresAt, accessToken, refreshToken } = yield select((state) => ({
     expiresAt: state.oauth2.token.expiresAt,
@@ -112,6 +113,7 @@ function* watcher() {
   yield takeLeading(OAUTH2_REFRESH_TOKEN, doRefreshToken);
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function* oauth2RootSaga() {
   yield all([watcher()]);
 }
