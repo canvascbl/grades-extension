@@ -5,20 +5,20 @@
   "content_scripts": [
     {
       "matches": ["https://dtechhs.instructure.com/"],
-      "js": ["content_scripts/dashboard/index.js"],
+      "js": ["content_scripts/dashboard/index.bundle.js"],
       "css": ["content_scripts/dashboard/index.css"],
       "run_at": "document_idle"
     },
     {
       "matches": ["https://dtechhs.instructure.com/courses/*"],
-      "js": ["content_scripts/course_home/index.js"],
+      "js": ["content_scripts/course_home/index.bundle.js"],
       "css": ["content_scripts/course_home/index.css"],
       "run_at": "document_idle"
     }
   ],
   "background": {
     "scripts": ["background.bundle.js"],
-    "persistent": false
+    "persistent": true
   },
   "web_accessible_resources": [
     "img/*",
@@ -26,6 +26,9 @@
   ],
   "permissions": [
     "storage",
-    "https://*.canvascbl.com/"
+    "webRequest",
+    "https://*.canvascbl.com/",
+    "*://dtechhs.instructure.com/*"
   ]
 }
+

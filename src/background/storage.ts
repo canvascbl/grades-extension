@@ -1,5 +1,5 @@
 import { set, get } from "idb-keyval";
-import { Module, connect } from "newton-redux";
+import { Module, connect } from "newton-redux-reborn";
 
 import State from "./redux/types";
 
@@ -41,7 +41,7 @@ class Storage extends Module {
   constructor(props) {
     super(props);
 
-    console.log("storage props", props);
+    this.props = props;
   }
 
   onChange = async (changeMap) => {

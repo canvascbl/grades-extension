@@ -47,9 +47,7 @@ export function gotOAuth2TokenFromCode(
   };
 }
 
-export function refreshToken(
-  onlyIfNecessary: boolean = true
-): OAuth2RefreshTokenAction {
+export function refreshToken(onlyIfNecessary = true): OAuth2RefreshTokenAction {
   return {
     type: OAUTH2_REFRESH_TOKEN,
     onlyIfNecessary,

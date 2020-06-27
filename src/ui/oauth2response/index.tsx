@@ -12,7 +12,7 @@ import { getOAuth2TokenFromCode } from "../../background/redux/actions/oauth2";
 const store = new Store();
 
 function OAuth2Response(props) {
-  const { oauth2, dispatch }: { oauth2: OAuth2State; dispatch: any } = props;
+  const { oauth2, dispatch }: { oauth2: OAuth2State; dispatch } = props;
   const { token, tokenFromCodeError } = oauth2;
   const { access } = token;
 
@@ -25,7 +25,7 @@ function OAuth2Response(props) {
   }, [code, dispatch]);
 
   const error: boolean = !code || !!tokenFromCodeError;
-  const success: boolean = !!access;
+  const success = !!access;
 
   let errorRender: JSX.Element = (
     <p className="text-danger">

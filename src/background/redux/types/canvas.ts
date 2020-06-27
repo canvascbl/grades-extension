@@ -26,6 +26,7 @@ export interface UserProfile {
     ics: string;
   };
   effective_locale: string;
+  id: string;
   login_id: string;
   lti_user_id: string;
   name: string;
@@ -100,14 +101,26 @@ export interface GradesResponse {
   courses?: Courses;
 }
 
+export interface CanvasCBLUserProfile {
+  id: number;
+  name: string;
+  email: string;
+  lti_user_id?: string;
+  canvas_user_id: string;
+  status?: number;
+}
+
 export interface CanvasState {
   detailedGrades?: DetailedGrades;
   userProfile?: UserProfile;
   observees?: Observees;
   courses?: Courses;
+  canvascblUserProfile?: CanvasCBLUserProfile;
   // Date.now() of when the data was fetched
   fetchedAt?: number;
   gradesFetchError?: APIError;
+  loadingGrades?: boolean;
+  canvascblUserProfileFetchError?: APIError;
 }
 
 export const CANVAS_GET_GRADES = "CANVAS_GET_GRADES";
@@ -140,7 +153,33 @@ export interface CanvasGotGradesAction {
   courses?: Courses;
 }
 
+export const CANVAS_GET_CANVASCBL_USER_PROFILE =
+  "CANVAS_GET_CANVASCBL_USER_PROFILE";
+
+export interface CanvasGetCanvasCBLUserProfileAction {
+  type: typeof CANVAS_GET_CANVASCBL_USER_PROFILE;
+}
+
+export const CANVAS_GET_CANVASCBL_USER_PROFILE_ERROR =
+  "CANVAS_GET_CANVASCBL_USER_PROFILE_ERROR";
+
+export interface CanvasGetCanvasCBLUserProfileErrorAction {
+  type: typeof CANVAS_GET_CANVASCBL_USER_PROFILE_ERROR;
+  e: APIError;
+}
+
+export const CANVAS_GOT_CANVASCBL_USER_PROFILE =
+  "CANVAS_GOT_CANVASCBL_USER_PROFILE";
+
+export interface CanvasGotCanvasCBLUserProfileAction {
+  type: typeof CANVAS_GOT_CANVASCBL_USER_PROFILE;
+  profile: CanvasCBLUserProfile;
+}
+
 export type CanvasActionTypes =
   | CanvasGetGradesAction
   | CanvasGetGradesErrorAction
-  | CanvasGotGradesAction;
+  | CanvasGotGradesAction
+  | CanvasGetCanvasCBLUserProfileAction
+  | CanvasGetCanvasCBLUserProfileErrorAction
+  | CanvasGotCanvasCBLUserProfileAction;

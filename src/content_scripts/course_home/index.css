@@ -6,17 +6,26 @@
   color: #2d3b45;
   opacity: 1;
 }
+
+.canvascbl-grade-fetchedat {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.75em;
+}
+
 .canvascbl-class-grade-attribution {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/grades_from_canvascbl.png);
   width: auto;
   height: 35px;
   background-size: contain, cover;
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 10px;
+
 }
+
 .canvascbl-class-grade-breakdown-link {
   text-align: center;
   display: block;
   font-size: 15px;
-  margin-top: 10px;
 }

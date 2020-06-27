@@ -38,9 +38,11 @@
 @keyframes openTransition {
     0% {
         opacity: 0;
+        max-height: 36px;
     }
     100% {
         opacity: 1;
+        max-height: 60%;
     }
 }
 
@@ -54,6 +56,7 @@
     display: none;
     opacity: 0;
     color: white;
+    max-height: 36px;
 }
 
 .canvascbl-dashboard-expanded-grade-container span:nth-child(1) {
