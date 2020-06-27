@@ -168,7 +168,7 @@ module.exports = {
       banner: `${
         !isDev &&
         "Reverse-engineering any part of CanvasCBL is against our terms of service, which you can find at https://go.canvascbl.com/tos. // "
-      }xxhash:[hash], builtAt:${Date.now()}, isDev:${isDev ? "true" : "false"}`,
+      }hash:[hash], builtAt:${Date.now()}, isDev:${isDev ? "true" : "false"}`,
       entryOnly: true,
     }),
   ],
