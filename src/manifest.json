@@ -21,6 +21,12 @@
     "persistent": true
   },
   "browser_action": {},
+  "icons": {
+    "16": "img/logo-16px.png",
+    "32": "img/logo-32px.png",
+    "64": "img/logo-64px.png",
+    "128": "img/logo-128px.png"
+  },
   "web_accessible_resources": [
     "img/*",
     "ui/oauth2response/index.html"

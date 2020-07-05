@@ -9,8 +9,13 @@ import RefreshListener from "./refreshListener";
 connectToStore(Storage);
 connectToStore(RefreshListener);
 
-chrome.browserAction.onClicked.addListener(() => {
+const openSettings = () =>
   chrome.tabs.create({
     url: chrome.runtime.getURL("/ui/settings/index.html"),
   });
-});
+
+chrome.browserAction.onClicked.addListener(() => openSettings());
+
+chrome.runtime.onInstalled.addListener(
+  (details) => details.reason === "install" && openSettings()
+);
