@@ -118,7 +118,7 @@ module.exports = {
   },
 
   optimization: {
-    minimize: true,
+    minimize: !isDev,
     minimizer: [
       new TerserWebpackPlugin({
         terserOptions: {
