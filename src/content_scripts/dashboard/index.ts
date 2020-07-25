@@ -161,8 +161,6 @@ class DashboardInjection extends Module {
       ? "Try again later or contact support."
       : `Click for a breakdown.`;
 
-    console.log("injections", this.injections);
-
     if (existingGrade) {
       (existingGrade as HTMLDivElement).innerText = grade;
       document.getElementById(

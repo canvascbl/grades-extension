@@ -5,11 +5,13 @@ import "./redux";
 import { connectToStore } from "./redux";
 import Storage from "./storage";
 import RefreshListener from "./refreshListener";
+import ErrorListener from "./errorListener";
 
 connectToStore(Storage);
 connectToStore(RefreshListener);
+connectToStore(ErrorListener);
 
-const openSettings = () =>
+export const openSettings = (): void =>
   chrome.tabs.create({
     url: chrome.runtime.getURL("/ui/settings/index.html"),
   });

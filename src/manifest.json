@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "CanvasCBL Grades",
-  "version": "0.1",
+  "version": "0.2",
   "content_scripts": [
     {
       "matches": ["https://dtechhs.instructure.com/"],
@@ -33,6 +33,7 @@
   ],
   "permissions": [
     "storage",
+    "notifications",
     "webRequest",
     "https://*.canvascbl.com/",
     "*://dtechhs.instructure.com/*"

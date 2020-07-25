@@ -4,11 +4,13 @@ import { CanvasState } from "./redux/types/canvas";
 import State from "./redux/types/index";
 import { Dispatch } from "redux";
 import { getGrades } from "./redux/actions/canvas";
+import { displayNotLinkedNotification } from "./notifications";
 
 interface RefreshListenerStateProps {
   gradesFetchedAt?: CanvasState["fetchedAt"];
   loadingGrades?: CanvasState["loadingGrades"];
   gradesErrorExists?: boolean;
+  userIsSignedIn?: boolean;
 }
 
 interface RefreshListenerDispatchProps {
@@ -53,6 +55,11 @@ class RefreshListener extends Module {
   };
 
   handleCanvasWebRequest = (): void => {
+    if (!this.props.userIsSignedIn) {
+      displayNotLinkedNotification();
+      return;
+    }
+
     if (this.shouldRefreshGrades()) {
       this.props.fetchGrades();
     }
@@ -64,6 +71,7 @@ function mapStateToProps(state: State): RefreshListenerStateProps {
     gradesFetchedAt: state.canvas.fetchedAt,
     loadingGrades: state.canvas.loadingGrades,
     gradesErrorExists: !!state.canvas.gradesFetchError,
+    userIsSignedIn: !!state.oauth2.token.access,
   };
 }
 
